@@ -1,4 +1,5 @@
-# jee-hello-app
+# enterprise-register
+# figma: https://www.figma.com/file/sAJzmqRP3gwClxgoURlpES/enterprise-register?node-id=0-1&t=7DVYm1VRm0jbIAmv-0
 
 # Checklist
 
