@@ -1,0 +1,33 @@
+.containerFinal {
+    display: flex;
+    height: 100vh;
+}
+
+.company-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #0C4A6E; /* Cor para a esquerda */
+    padding: 20px;
+}
+
+
+.groupLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #D9D9D9; /* Cor para a direita */
+    padding: 20px;
+}
+
+.botaoMargin {
+    margin: 15px;
+}
+
+.botaoLogin {
+    color: #38BDF8;
+}
