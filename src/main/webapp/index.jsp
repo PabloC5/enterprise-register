@@ -1,16 +1,3 @@
-<%--<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>--%>
-<%--<!DOCTYPE html>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>JSP - Hello World</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<h1><%= "Hello World!" %>--%>
-<%--</h1>--%>
-<%--<br/>--%>
-<%--<a href="hello-servlet">Hello Servlet</a>--%>
-<%--</body>--%>
-<%--</html>--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -33,14 +20,14 @@
                     O que deseja fazer?
                 </h2>
                 <div>
-                    <button type="button" class="btn btn-info botaoMargin">
+                    <a class="btn btn-info botaoMargin" href="login">
                         <i class="fa fa-user"></i>
                         Logar
-                    </button>
-                    <button type="button" class="btn btn-primary botaoMargin">
+                    </a>
+                    <a class="btn btn-primary botaoMargin" href="cadastro">
                         <i class="fa fa-user-plus"></i>
                         Cadastrar
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
