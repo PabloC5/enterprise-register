@@ -1,5 +1,10 @@
 package br.edu.utfpr.enterprise_edition.controller;
 
+import br.edu.utfpr.enterprise_edition.model.domain.Company;
+import br.edu.utfpr.enterprise_edition.model.domain.User;
+import br.edu.utfpr.enterprise_edition.service.CompanyService;
+import br.edu.utfpr.enterprise_edition.service.UserService;
+
 import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -22,12 +27,23 @@ public class CadastroController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String emailRepesentante = request.getParameter("emailRepresentante");
         String cnpj = request.getParameter("cnpj");
         String nomeEmpresa = request.getParameter("nomeEmpresa");
         String senha = request.getParameter("senha");
+        UserService userService = new UserService();
+
+        String senhaEncript =  userService.encriptPassword(senha);
+
+        User user = new User(emailRepesentante, senhaEncript);
+
+        userService.save(user);
+        Company company = new Company(nomeEmpresa, cnpj, user);
+
+        CompanyService companyService = new CompanyService();
+        companyService.save(company);
 
         request.setAttribute("message", message);
-
     }
 }

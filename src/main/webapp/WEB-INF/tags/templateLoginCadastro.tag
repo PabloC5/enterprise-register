@@ -1,9 +1,10 @@
-<%@tag description="Template principal" pageEncoding="UTF-8"%>
+<%@tag description="Template principal"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@attribute name="title"%>
 
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <title>${title}</title>
     <base href="${pageContext.request.contextPath}/">

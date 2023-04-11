@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "company")
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 public class Company {
     @Id
@@ -18,6 +18,6 @@ public class Company {
     @NonNull
     private String cnpj;
 
-    @ManyToOne
+    @ManyToOne @NonNull
     private User user;
 }

@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -25,7 +25,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="senha" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senha" name="nomeEmpresa" placeholder="Senha">
+                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
                         </div>
                         <div class="sigup">
                             <button type="submit" class="btn btn-danger w-50">Cadastrar</button>

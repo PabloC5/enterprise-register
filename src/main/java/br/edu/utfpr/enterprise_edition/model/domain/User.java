@@ -4,7 +4,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user")
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 public class User {
     @Id
