@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row">
                     <div class="boxForm">
-                        <form class="">
+                        <form action="post" class="">
                             <div class="mb-4">
                                 <label for="exampleInputEmail1" class="form-label">Email representante</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email representante">

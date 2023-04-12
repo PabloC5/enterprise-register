@@ -44,6 +44,8 @@ public class CadastroController extends HttpServlet {
         CompanyService companyService = new CompanyService();
         companyService.save(company);
 
-        request.setAttribute("message", message);
+        request.setAttribute("user", user);
+//        response.sendRedirect("home");
+        request.getRequestDispatcher("home").forward(request, response);
     }
 }
