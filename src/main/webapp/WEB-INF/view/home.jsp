@@ -5,6 +5,82 @@
 
 <t:templateHome title="Enterprise Register">
     <jsp:body>
+        <header>
+            <h1 class="d-flex justify-content-center">Enterprise register</h1>
+            <nav>
+                <div class="mobile-menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-list">
+                    <li class="testeListe"><a href="home.html">Home</a></li>
+                    <li class="testeListe"><a href="addEmpresa.html">Adicionar</a></li>
+                    <li class="testeListe"><a href="login.html">Sair</a></li>
+                    <li>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form formPesquisa" id="formGroupExampleInput" placeholder="Pesquisar">
+                                <button type="submit" id="botaoPesquisa" class="btn btn-outline-light btn-sm">Pesquisar</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Modal modal exluir -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir empresa</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Deseja execluir essa empresa?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal exluir -->
+
+        <!-- modal edit -->
+        <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar empresa</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">CPNJ</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nome empresa</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Descrição</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal edit -->
             <!-- cards empresa -->
             <div class="container">
                 <div class="row">

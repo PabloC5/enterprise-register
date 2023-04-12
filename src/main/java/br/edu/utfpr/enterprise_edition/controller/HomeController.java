@@ -1,6 +1,8 @@
 package br.edu.utfpr.enterprise_edition.controller;
 
+import br.edu.utfpr.enterprise_edition.model.domain.Company;
 import br.edu.utfpr.enterprise_edition.model.domain.User;
+import br.edu.utfpr.enterprise_edition.service.CompanyService;
 import br.edu.utfpr.enterprise_edition.service.UserService;
 
 import javax.servlet.ServletException;
@@ -21,9 +23,18 @@ public class HomeController extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        process(request, response);
-        response.setContentType("text/html");
-        request.getRequestDispatcher(VIEW + "home.jsp").forward(request, response);
+        HttpSession session = request.getSession(false);
+        User user = (User) session.getAttribute("usuarioLogado");
+        CompanyService companyService = new CompanyService();
+//        Company company = companyService.findAll();
+
+        if (session.getAttribute("usuarioLogado") == null) {
+            response.setContentType("text/html");
+            request.getRequestDispatcher(VIEW + "login.jsp").forward(request, response);
+        } else {
+            response.setContentType("text/html");
+            request.getRequestDispatcher(VIEW + "home.jsp").forward(request, response);
+        }
     }
 
     @Override
@@ -32,20 +43,7 @@ public class HomeController extends HttpServlet {
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession();
-        User userLoginRegister = (User) request.getAttribute("user");
-        UserService userService = new UserService();
-        User userBanco = userService.getById(userLoginRegister.getId());
-//        session.getAttribute("usuarioLogado");
-        if (userBanco.getSenha().equals(userLoginRegister.getSenha())) {
-            session.setAttribute("usuarioLogado", userBanco);
-//            response.setContentType("text/html");
-            response.sendRedirect("home");
-//            request.getRequestDispatcher(VIEW + "home.jsp").forward(request, response);
-        } else {
-            response.setContentType("text/html");
-            request.getRequestDispatcher(VIEW + "index.jsp").forward(request, response);
-        }
+
     }
 
 

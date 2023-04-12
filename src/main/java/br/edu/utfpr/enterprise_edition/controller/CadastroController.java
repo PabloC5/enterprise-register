@@ -33,6 +33,7 @@ public class CadastroController extends HttpServlet {
         String nomeEmpresa = request.getParameter("nomeEmpresa");
         String senha = request.getParameter("senha");
         UserService userService = new UserService();
+        HttpSession session = request.getSession();
 
         String senhaEncript =  userService.encriptPassword(senha);
 
@@ -44,8 +45,9 @@ public class CadastroController extends HttpServlet {
         CompanyService companyService = new CompanyService();
         companyService.save(company);
 
-        request.setAttribute("user", user);
+        session.setAttribute("usuarioLogado", user);
 //        response.sendRedirect("home");
-        request.getRequestDispatcher("home").forward(request, response);
+//        request.getRequestDispatcher("home").forward(request, response);
+        response.sendRedirect("home");
     }
 }

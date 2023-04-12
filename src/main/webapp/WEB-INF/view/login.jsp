@@ -11,14 +11,14 @@
             <div class="container">
                 <div class="row">
                     <div class="boxForm">
-                        <form action="post" class="">
+                        <form action="login" method="post">
                             <div class="mb-4">
-                                <label for="exampleInputEmail1" class="form-label">Email representante</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email representante">
+                                <label for="emailRepresentante" class="form-label">Email representante</label>
+                                <input type="email" class="form-control" id="emailRepresentante" name="emailRepresentante" aria-describedby="emailHelp" placeholder="Email representante">
                             </div>
                             <div class="mb-4">
-                                <label for="exampleInputPassword1" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
                             </div>
                             <div class="sigup">
                                 <button type="submit" class="btn btn-danger w-50">Logar</button>
