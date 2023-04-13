@@ -14,8 +14,8 @@
                     <div class="line3"></div>
                 </div>
                 <ul class="nav-list">
-                    <li class="testeListe"><a href="home.html">Home</a></li>
-                    <li class="testeListe"><a href="addEmpresa.html">Adicionar</a></li>
+                    <li class="testeListe"><a href="home">Home</a></li>
+                    <li class="testeListe"><a href="addCompany">Adicionar</a></li>
                     <li class="testeListe"><a href="login.html">Sair</a></li>
                     <li>
                         <form>
@@ -30,11 +30,11 @@
         </header>
 
         <!-- Modal modal exluir -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalExcluir" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir empresa</h1>
+                        <h1 class="modal-title fs-5" id="modalExcluir">Excluir empresa</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger">Excluir</button>
+                        <button onclick="deleteCompanys()" type="button" class="btn btn-danger">Excluir</button>
                     </div>
                 </div>
             </div>
@@ -50,11 +50,11 @@
         <!-- modal exluir -->
 
         <!-- modal edit -->
-        <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="modalEditar" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar empresa</h1>
+                        <h1 class="modal-title fs-5" >Editar empresa</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -82,26 +82,19 @@
         </div>
         <!-- modal edit -->
             <!-- cards empresa -->
-<%--        <c:if test="${not empty companys}">--%>
-<%--            <c:forEach var="company" items="${companys}">--%>
-
-<%--            </c:forEach>--%>
-<%--        </c:if>--%>
-
-<%--        <c:if test="${empty companys}">--%>
-<%--            Não há usuários na lista--%>
-<%--        </c:if>--%>
-            <div class="container">
+        <c:if test="${not empty companys}">
+            <c:forEach var="company" items="${companys}">
                 <div class="row">
                     <div class="col-8 offset-2">
                         <div class="card-deck">
                             <div class="card mt-3 mb-3">
                                 <div class="card-header">
-                                    Representante: Pablo
+                                    Representante: ${company.user.email}
                                 </div>
+                                <span id="idDelete" class="d-none"> ${company.id} </span>
                                 <div class="card-body">
-                                    <h5 class="card-title">Empresa 1 </h5>
-                                    <h6 class="card-title">CNPJ: 83.260.541/0001-86</h6>
+                                    <h5 class="card-title"> ${company.name} </h5>
+                                    <h6 class="card-title">CNPJ: ${company.cnpj}</h6>
                                     <p class="card-text">
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
                                     </p>
@@ -120,6 +113,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
+            </c:forEach>
+        </c:if>
+
+        <c:if test="${empty companys}">
+            Não há usuários na lista
+        </c:if>
+            <div class="container">
     </jsp:body>
 </t:templateHome>

@@ -42,6 +42,7 @@
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/fontawesome.js" integrity="sha384-dPBGbj4Uoy1OOpM4+aRGfAOc0W37JkROT+3uynUgTHZCHZNMHfGXsmmvYTffZjYO" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 <script src="assets/scripts/navBar.js"></script>
+<script src="assets/scripts/deleteCompany.js"></script>
 
 <%--<script src="https://code.jquery.com/jquery-2.2.4.js"></script>--%>
 <%--<script src="assets/libraries/jquery.mask.min.js"></script>--%>

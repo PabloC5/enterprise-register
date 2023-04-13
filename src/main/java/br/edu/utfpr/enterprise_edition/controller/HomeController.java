@@ -24,14 +24,12 @@ public class HomeController extends HttpServlet {
         message = "Cadastro";
     }
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         User user = (User) session.getAttribute("usuarioLogado");
         CompanyService companyService = new CompanyService();
         List<Company> companyListAll = companyService.findAll();
         List<Company> companyList = new ArrayList<>();
-
-
 
         if (session.getAttribute("usuarioLogado") == null) {
             response.setContentType("text/html");
@@ -50,7 +48,7 @@ public class HomeController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         process(request, response);
     }
 
@@ -58,6 +56,16 @@ public class HomeController extends HttpServlet {
 
     }
 
-
-
+    @Override
+    public void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("testandooooooo");
+        Long id = Long.valueOf(req.getParameter("id"));
+        CompanyService companyService = new CompanyService();
+        companyService.deleteById(id);
+//        resp.sendRedirect("/home");
+//        resp.setContentType("text/html");
+//        resp.getRequestDispatcher(VIEW + "home.jsp").forward(resp, resp);
+//        resp.setContentType("text/html");
+//        req.getRequestDispatcher(VIEW + "home.jsp").forward(req, resp);
+    }
 }

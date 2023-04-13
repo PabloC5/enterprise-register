@@ -170,4 +170,8 @@ footer{
     margin-top: 9px;
     color: #fff;
 }
+
+.escondendo {
+    visibility: hidden;
+}
 /* teste novo menu */
