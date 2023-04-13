@@ -5,47 +5,38 @@ import br.edu.utfpr.enterprise_edition.model.domain.User;
 import br.edu.utfpr.enterprise_edition.service.CompanyService;
 import br.edu.utfpr.enterprise_edition.service.UserService;
 
-import java.io.*;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
-@WebServlet(name = "CadastroServlet", value = "/cadastro")
-public class CadastroController extends HttpServlet {
-    private String message;
+@WebServlet(name = "addCompanyServlet", value = "/addCompany")
+public class AddCompanyController extends HttpServlet {
+
     private final String VIEW = "WEB-INF/view/";
-    public void init() {
-        message = "Cadastro";
-    }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setContentType("text/html");
-
-        request.setAttribute("message", message);
-        request.getRequestDispatcher(VIEW + "cadastro.jsp").forward(request, response);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        req.getRequestDispatcher(VIEW + "addCompany.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        String emailRepesentante = request.getParameter("emailRepresentante");
         String cnpj = request.getParameter("cnpj");
         String nomeEmpresa = request.getParameter("nomeEmpresa");
-        String senha = request.getParameter("senha");
         UserService userService = new UserService();
         HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("usuarioLogado");
 
-        String senhaEncript =  userService.encriptPassword(senha);
-
-        User user = new User(emailRepesentante, senhaEncript);
-
-        userService.save(user);
         Company company = new Company(nomeEmpresa, cnpj, user);
 
         CompanyService companyService = new CompanyService();
         companyService.save(company);
-
-        session.setAttribute("usuarioLogado", user);
 //        response.sendRedirect("home");
 //        request.getRequestDispatcher("home").forward(request, response);
         response.sendRedirect("home");
