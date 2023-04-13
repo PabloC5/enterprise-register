@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "HomeServlet", value = "/home")
 public class HomeController extends HttpServlet {
@@ -26,12 +28,22 @@ public class HomeController extends HttpServlet {
         HttpSession session = request.getSession(false);
         User user = (User) session.getAttribute("usuarioLogado");
         CompanyService companyService = new CompanyService();
-//        Company company = companyService.findAll();
+        List<Company> companyListAll = companyService.findAll();
+        List<Company> companyList = new ArrayList<>();
+
+
 
         if (session.getAttribute("usuarioLogado") == null) {
             response.setContentType("text/html");
             request.getRequestDispatcher(VIEW + "login.jsp").forward(request, response);
         } else {
+            for (Company item: companyListAll) {
+                if (item.getUser().getEmail().equals(user.getEmail())) {
+                    companyList.add(item);
+                }
+            }
+
+            getServletContext().setAttribute("companys", companyList);
             response.setContentType("text/html");
             request.getRequestDispatcher(VIEW + "home.jsp").forward(request, response);
         }
