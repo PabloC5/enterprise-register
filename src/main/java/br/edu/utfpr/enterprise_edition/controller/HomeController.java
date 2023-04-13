@@ -32,15 +32,13 @@ public class HomeController extends HttpServlet {
         List<Company> companyList = new ArrayList<>();
 
         if (session.getAttribute("usuarioLogado") == null) {
-            response.setContentType("text/html");
-            request.getRequestDispatcher(VIEW + "login.jsp").forward(request, response);
+            response.sendRedirect("login");
         } else {
             for (Company item: companyListAll) {
                 if (item.getUser().getEmail().equals(user.getEmail())) {
                     companyList.add(item);
                 }
             }
-
             getServletContext().setAttribute("companys", companyList);
             response.setContentType("text/html");
             request.getRequestDispatcher(VIEW + "home.jsp").forward(request, response);
@@ -58,7 +56,6 @@ public class HomeController extends HttpServlet {
 
     @Override
     public void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("testandooooooo");
         Long id = Long.valueOf(req.getParameter("id"));
         CompanyService companyService = new CompanyService();
         companyService.deleteById(id);

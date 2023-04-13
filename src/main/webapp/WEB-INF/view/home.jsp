@@ -16,7 +16,14 @@
                 <ul class="nav-list">
                     <li class="testeListe"><a href="home">Home</a></li>
                     <li class="testeListe"><a href="addCompany">Adicionar</a></li>
-                    <li class="testeListe"><a href="login.html">Sair</a></li>
+                    <form action="logout" method="get">
+                        <li class="testeListe">
+                            <button type="submit" class="btn">
+                                Sair
+                            </button>
+<%--                            <a type="submit">Sair</a>--%>
+                        </li>
+                    </form>
                     <li>
                         <form>
                             <div class="form-group">
@@ -84,6 +91,9 @@
             <!-- cards empresa -->
         <c:if test="${not empty companys}">
             <c:forEach var="company" items="${companys}">
+                    <%--modal excluir--%>
+
+                <%--modal excluir--%>
                 <div class="row">
                     <div class="col-8 offset-2">
                         <div class="card-deck">
@@ -91,6 +101,9 @@
                                 <div class="card-header">
                                     Representante: ${company.user.email}
                                 </div>
+                                <%--teste excluir--%>
+                                <%-- teste excluir--%>
+                                <p>${company.getId()}</p>
                                 <span id="idDelete" class="d-none"> ${company.id} </span>
                                 <div class="card-body">
                                     <h5 class="card-title"> ${company.name} </h5>
