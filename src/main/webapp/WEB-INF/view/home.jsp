@@ -49,7 +49,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button onclick="excluirItem()" type="button" class="btn btn-danger">Excluir</button>
+                        <button onclick="deleteCompanys()" type="button" class="btn btn-danger">Excluir</button>
                     </div>
                 </div>
             </div>
@@ -134,44 +134,5 @@
                 Não há usuários na lista
             </c:if>
         <div class="container">
-        <script !src="">
-
-            <%--function teste() {--%>
-            <%--    $.ajax({--%>
-            <%--        url: `http://localhost:8080/enterprise-register/home?id=${idDelete}`,--%>
-            <%--        type: "DELETE",--%>
-            <%--        success: function(result) {--%>
-            <%--            // código a ser executado em caso de sucesso--%>
-            <%--            console.log("Item excluído com sucesso");--%>
-            <%--        },--%>
-            <%--        error: function(xhr, status, error) {--%>
-            <%--            // código a ser executado em caso de erro--%>
-            <%--            console.log("Erro ao excluir item: " + error);--%>
-            <%--        }--%>
-            <%--    });--%>
-            <%--}--%>
-
-            function excluirItem() {
-                let idDelete = document.getElementById("idDelete").outerText.trim()
-                console.log(idDelete)
-                // let url =
-                debugger
-                $.ajax({
-                    url: 'http://localhost:8080/enterprise-register/home?id=' + idDelete,
-                    type: "DELETE",
-                    success: function(result) {
-                        // código a ser executado em caso de sucesso
-                        console.log("Item excluído com sucesso");
-                        // resolve(result);
-                    },
-                    error: function(xhr, status, error) {
-                        // código a ser executado em caso de erro
-                        console.log("Erro ao excluir item: " + error);
-                        // reject(error);
-                    }
-                });
-            }
-
-        </script>
     </jsp:body>
 </t:templateHome>
