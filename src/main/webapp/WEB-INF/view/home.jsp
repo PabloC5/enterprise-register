@@ -25,12 +25,12 @@
                         </li>
                     </form>
                     <li>
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form formPesquisa" id="formGroupExampleInput" placeholder="Pesquisar">
-                                <button type="submit" id="botaoPesquisa" class="btn btn-outline-light btn-sm">Pesquisar</button>
-                            </div>
-                        </form>
+<%--                        <form>--%>
+<%--                            <div class="form-group">--%>
+<%--                                <input type="text" class="form formPesquisa" id="formGroupExampleInput" placeholder="Pesquisar">--%>
+<%--                                <button type="submit" id="botaoPesquisa" class="btn btn-outline-light btn-sm">Pesquisar</button>--%>
+<%--                            </div>--%>
+<%--                        </form>--%>
                     </li>
                 </ul>
             </nav>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button onclick="deleteCompanys()" type="button" class="btn btn-danger">Excluir</button>
+                        <button onclick="excluirItem()" type="button" class="btn btn-danger">Excluir</button>
                     </div>
                 </div>
             </div>
@@ -112,9 +112,9 @@
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
                                     </p>
                                     <!-- <a href="#" class="btn btn-primary">Editar</a> -->
-                                    <button type="button" class="btn btn-primary"             data-bs-toggle="modal" data-bs-target="#modalEdit">
-                                        Editar
-                                    </button>
+<%--                                    <button type="button" class="btn btn-primary"             data-bs-toggle="modal" data-bs-target="#modalEdit">--%>
+<%--                                        Editar--%>
+<%--                                    </button>--%>
 
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Excluir
@@ -130,9 +130,48 @@
             </c:forEach>
         </c:if>
 
-        <c:if test="${empty companys}">
-            Não há usuários na lista
-        </c:if>
-            <div class="container">
+            <c:if test="${empty companys}">
+                Não há usuários na lista
+            </c:if>
+        <div class="container">
+        <script !src="">
+
+            <%--function teste() {--%>
+            <%--    $.ajax({--%>
+            <%--        url: `http://localhost:8080/enterprise-register/home?id=${idDelete}`,--%>
+            <%--        type: "DELETE",--%>
+            <%--        success: function(result) {--%>
+            <%--            // código a ser executado em caso de sucesso--%>
+            <%--            console.log("Item excluído com sucesso");--%>
+            <%--        },--%>
+            <%--        error: function(xhr, status, error) {--%>
+            <%--            // código a ser executado em caso de erro--%>
+            <%--            console.log("Erro ao excluir item: " + error);--%>
+            <%--        }--%>
+            <%--    });--%>
+            <%--}--%>
+
+            function excluirItem() {
+                let idDelete = document.getElementById("idDelete").outerText.trim()
+                console.log(idDelete)
+                // let url =
+                debugger
+                $.ajax({
+                    url: 'http://localhost:8080/enterprise-register/home?id=' + idDelete,
+                    type: "DELETE",
+                    success: function(result) {
+                        // código a ser executado em caso de sucesso
+                        console.log("Item excluído com sucesso");
+                        // resolve(result);
+                    },
+                    error: function(xhr, status, error) {
+                        // código a ser executado em caso de erro
+                        console.log("Erro ao excluir item: " + error);
+                        // reject(error);
+                    }
+                });
+            }
+
+        </script>
     </jsp:body>
 </t:templateHome>

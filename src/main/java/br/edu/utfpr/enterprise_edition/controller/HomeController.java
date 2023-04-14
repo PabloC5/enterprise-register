@@ -59,7 +59,7 @@ public class HomeController extends HttpServlet {
         Long id = Long.valueOf(req.getParameter("id"));
         CompanyService companyService = new CompanyService();
         companyService.deleteById(id);
-//        resp.sendRedirect("/home");
+        resp.sendRedirect("home");
 //        resp.setContentType("text/html");
 //        resp.getRequestDispatcher(VIEW + "home.jsp").forward(resp, resp);
 //        resp.setContentType("text/html");
