@@ -19,8 +19,8 @@
     - [x] forEach
     - [x] if
     - [x] Template com cabeçalho e rodapé
-- [ ] JavaScript
-    - [ ] Requisição AJAX
+- [x] JavaScript
+    - [x] Requisição AJAX
     - [ ] Armazenamento no LocalStorage
     - [ ] Uso de plugin JQuery
 - [x] JPA
