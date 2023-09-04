@@ -131,7 +131,7 @@
         </c:if>
 
             <c:if test="${empty companys}">
-                Não há usuários na lista
+                Não há empresas cadastradas
             </c:if>
         <div class="container">
     </jsp:body>
